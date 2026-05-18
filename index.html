@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Учет личных финансов</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Учет личных финансов</h1>
+
+      <section class="card">
+        <h2>Добавление транзакции</h2>
+
+        <form id="transaction-form" class="transaction-form">
+          <label>
+            Сумма транзакции
+            <input
+              id="amount"
+              type="number"
+              step="0.01"
+              placeholder="Например: 150 или -75"
+              required
+            />
+          </label>
+
+          <label>
+            Категория
+            <select id="category" required>
+              <option value="">Выберите категорию</option>
+              <option value="Зарплата">Зарплата</option>
+              <option value="Продукты">Продукты</option>
+              <option value="Транспорт">Транспорт</option>
+              <option value="Развлечения">Развлечения</option>
+              <option value="Другое">Другое</option>
+            </select>
+          </label>
+
+          <label>
+            Описание
+            <textarea
+              id="description"
+              rows="3"
+              placeholder="Введите описание транзакции"
+              required
+            ></textarea>
+          </label>
+
+          <button type="submit">Добавить транзакцию</button>
+          <p id="form-error" class="error-message"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Список транзакций</h2>
+
+        <p class="total">
+          Общая сумма:
+          <span id="total-amount">0.00</span>
+        </p>
+
+        <table id="transactions-table">
+          <thead>
+            <tr>
+              <th>Дата и Время</th>
+              <th>Категория транзакции</th>
+              <th>Краткое описание транзакции</th>
+              <th>Действие</th>
+            </tr>
+          </thead>
+          <tbody id="transactions-body"></tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Подробное описание транзакции</h2>
+        <div id="transaction-details" class="details">
+          Нажмите на строку таблицы, чтобы увидеть полное описание транзакции.
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>
