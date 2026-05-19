@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга контактов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header">
+            <div>
+                <h1>Книга контактов</h1>
+                <p>Простой телефонный справочник на Vanilla JavaScript</p>
+            </div>
+
+            <button id="openModalBtn" class="btn btn-primary">
+                Добавить контакт
+            </button>
+        </header>
+
+        <section class="controls">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Поиск по имени, телефону или email..."
+            >
+
+            <select id="sortSelect">
+                <option value="name">Сортировать по имени</option>
+                <option value="phone">Сортировать по телефону</option>
+                <option value="email">Сортировать по email</option>
+            </select>
+
+            <select id="filterSelect">
+                <option value="all">Все группы</option>
+                <option value="Семья">Семья</option>
+                <option value="Друзья">Друзья</option>
+                <option value="Работа">Работа</option>
+            </select>
+        </section>
+
+        <main>
+            <div id="contactsList" class="contacts-list"></div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добавить контакт</h2>
+                <button id="closeModalBtn" class="close-btn">&times;</button>
+            </div>
+
+            <form id="contactForm">
+                <label>
+                    Имя:
+                    <input type="text" id="nameInput" placeholder="Например: Иван">
+                </label>
+
+                <label>
+                    Телефон:
+                    <input type="text" id="phoneInput" placeholder="Например: 069123456">
+                </label>
+
+                <label>
+                    Email:
+                    <input type="text" id="emailInput" placeholder="Например: test@mail.com">
+                </label>
+
+                <label>
+                    Группа:
+                    <select id="groupInput">
+                        <option value="">Выберите группу</option>
+                        <option value="Семья">Семья</option>
+                        <option value="Друзья">Друзья</option>
+                        <option value="Работа">Работа</option>
+                    </select>
+                </label>
+
+                <p id="formError" class="error"></p>
+
+                <button type="submit" class="btn btn-primary">
+                    Сохранить
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
